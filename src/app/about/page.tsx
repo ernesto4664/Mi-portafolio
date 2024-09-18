@@ -10,12 +10,12 @@ export default function AboutPage() {
     <UserLayout>
       {/* Sección de Introducción */}
       <section className="flex flex-col items-center justify-center text-center p-10 bg-gradient-to-r from-blue-500 to-purple-600 text-white bg-custom-image">
-        <Image
-          src="/images/ernestoV.jpg"
-          alt="Mi Foto"
-          width={150}
-          height={150}
-          className="rounded-full mb-4 border-4 border-white shadow-lg"
+        <Image 
+          src="/images/ernestov.jpg" 
+          alt="Mi Foto" 
+          width={150} 
+          height={150} 
+          className="rounded-full border-4 border-white shadow-lg"
         />
         <h1 className="text-4xl font-bold">Hola, Soy Ernesto Viloria</h1>
         <p className="mt-4 max-w-2xl">
