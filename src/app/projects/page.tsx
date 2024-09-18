@@ -26,7 +26,31 @@ const projects = [
     imageUrl: '/images/chilecrece.png',
     repoLink: '',
     demoLink: '',
-    technologies: ['Php', 'Laravel', 'Javascript'],
+    technologies: ['Php', 'Laravel', 'Javascript', 'MySQL'],
+  },
+  {
+    title: 'Municipalidad de Porvenir',
+    description: 'Un sistema web interactivo autoadministrable para funcionarios de la Municipalidad de Porvenir, desarrollado con el CMS Wordpress y Php',
+    imageUrl: '/images/porvenir.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Php', 'Wordpress', 'Javascript', 'MySQL'],
+  },
+  {
+    title: 'Cementerio General de Recoleta',
+    description: 'Un sistema web interactivo autoadministrable para funcionarios del Cementerio General, desarrollado con el CMS Wordpress y Php, con integración de WooCommerce para realizar transacciones',
+    imageUrl: '/images/cementerio.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Php', 'Wordpress', 'Javascript', 'MySQL'],
+  },
+  {
+    title: 'PLADECO. Plan de Desarrollo Comunal de Puerto Montt',
+    description: 'Sistema de votaciones para la recopilación de datos sobre proyectos o iniciativas factibles para las Comunas de la Región, desarrollado con el CMS Wordpress, Php y Javascript',
+    imageUrl: '/images/pladeco.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Php', 'Wordpress', 'Javascript', 'MySQL'],
   },
   // Añade más proyectos aquí
 ];
