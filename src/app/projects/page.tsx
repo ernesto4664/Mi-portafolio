@@ -1,6 +1,7 @@
 // src/app/projects/page.tsx
 import UserLayout from '../../components/UserLayout';
 import ProjectCard from '../../components/ProjectCard';
+import Image from 'next/image';
 
 const projects = [
   {

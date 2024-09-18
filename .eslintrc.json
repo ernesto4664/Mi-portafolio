@@ -1,3 +1,8 @@
 {
-  "extends": "next/core-web-vitals"
+  "extends": "next/core-web-vitals",
+  "rules": {
+    "react/no-unescaped-entities": "off",  // Deshabilita la regla de comillas no escapadas
+    "no-console": "warn",  // Muestra advertencias si usas console.log
+    "react/jsx-props-no-spreading": "off"  // Deshabilita la restricción de prop spreading en JSX
+  }
 }

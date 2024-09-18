@@ -1,6 +1,7 @@
 "use client";  
 
 import { useEffect } from 'react';
+import Image from 'next/image';
 import UserLayout from '../components/UserLayout';
 import Link from 'next/link';
 import ProjectCard from '../components/ProjectCard';

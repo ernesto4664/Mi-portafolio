@@ -1,16 +1,18 @@
 import React from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 
 const Header: React.FC = () => {
   return (
     <header className="bg-gray-800 text-white p-4 flex justify-between items-center">
       <Link href="/" passHref>
-        <img 
-          src="/images/Evoriginal.png" 
-          alt="Logo de ErnestoV" 
-          className="h-auto" 
-          style={{ width: '200px' }} // Establece el ancho del logo a 200px
-        />
+        <Image 
+            src="/images/Evoriginal.png" 
+            alt="Logo de ErnestoV" 
+            width={200} 
+            height={200} 
+            className="h-auto"
+          />
       </Link>
       <nav>
         <a href="/" className="mr-4 hover:underline">
