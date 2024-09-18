@@ -1,113 +1,118 @@
-import Image from "next/image";
+"use client";  
 
-export default function Home() {
+import { useEffect } from 'react';
+import UserLayout from '../components/UserLayout';
+import Link from 'next/link';
+import ProjectCard from '../components/ProjectCard';
+import SkillBadge from '../components/SkillBadge'; // Asegúrate de importar SkillBadge
+
+const featuredProjects = [
+  {
+    title: 'Tradenews Chile',
+    description: 'Una aplicación web interactiva desarrollada con el CMS Wordpress, Php y Javascript',
+    imageUrl: '/images/TRADENEWS.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Wordpress', 'Php', 'Javascript', 'MySQL'],
+  },
+  {
+    title: 'App EcoCarga',
+    description: 'Una aplicación móvil para iOS y Android construida con Ionic y Angular.',
+    imageUrl: '/images/app.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Ionic', 'Angular', 'Typescript'],
+  },
+  {
+    title: 'API en Laravel 11',
+    description: 'Una API que integra y consume datos de...',
+    imageUrl: '/images/chilecrece.png',
+    repoLink: '',
+    demoLink: '',
+    technologies: ['Php', 'Laravel', 'Javascript'],
+  },
+  // Añade más proyectos aquí
+];
+
+export default function HomePage() {
+  
+  // useEffect para ejecutar la animación de zoom en el fondo cada 15 segundos
+  useEffect(() => {
+    const background = document.querySelector('.background-container') as HTMLElement;
+  
+    if (background) {
+      const runAnimation = () => {
+        background.style.animation = 'none'; // Elimina la animación actual
+        void background.offsetWidth; // Forzar un reflow
+        background.style.animation = 'zoomOut 8s ease forwards'; // Reinicia la animación
+      };
+  
+      // Inicia la animación al cargar la página
+      runAnimation();
+  
+      // Repite la animación cada 15 segundos
+      const interval = setInterval(() => {
+        runAnimation();
+      }, 23000); // 8s de animación + 15s de pausa
+  
+      return () => clearInterval(interval); // Limpia el intervalo al desmontar el componente
+    }
+  }, []);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-between p-24">
-      <div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-        <p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-          Get started by editing&nbsp;
-          <code className="font-mono font-bold">src/app/page.tsx</code>
+    <UserLayout>
+      {/* Hero Section con fondo animado */}
+      <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white background-container">
+        <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn">¡Hola! Soy Ernesto Viloria</h1>
+        <p className="text-lg mb-6 max-w-2xl animate__animated animate__fadeInUp">
+          Desarrollador Full Stack apasionado por crear experiencias web increíbles.
         </p>
-        <div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-          <a
-            className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-            href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            By{" "}
-            <Image
-              src="/vercel.svg"
-              alt="Vercel Logo"
-              className="dark:invert"
-              width={100}
-              height={24}
-              priority
-            />
-          </a>
+       {/* <Link href="/projects" className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+          Ver mis Proyectos
+        </Link>*/}
+      </section>
+
+      {/* Proyectos Destacados */}
+      <section className="p-10">
+        <h2 className="text-3xl font-bold text-center mb-8">Proyectos Destacados</h2>
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+          {featuredProjects.map((project, index) => (
+            <ProjectCard key={index} project={project} />
+          ))}
         </div>
-      </div>
+      </section>
 
-      <div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-        <Image
-          className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-          src="/next.svg"
-          alt="Next.js Logo"
-          width={180}
-          height={37}
-          priority
-        />
-      </div>
+      {/* Sección de Habilidades */}
+      <section className="p-10 bg-gray-100 dark:bg-gray-800">
+        <h2 className="text-3xl font-bold text-center mb-8">Mis Habilidades</h2>
+        <div className="flex flex-wrap justify-center">
+          <SkillBadge skill="React" />
+          <SkillBadge skill="Next.js" />
+          <SkillBadge skill="Tailwind CSS" />
+          <SkillBadge skill="Node.js" />
+          <SkillBadge skill="Php" />
+          <SkillBadge skill="JavaScript" />
+          <SkillBadge skill="TypeScript" />
+          <SkillBadge skill="Html" />
+          <SkillBadge skill="MySQL" />
+          <SkillBadge skill="PostgreSQL" />
+          <SkillBadge skill="MongoDB" />
+          <SkillBadge skill="Ionic Framework" />
+          <SkillBadge skill="Angular Framework" />
+          <SkillBadge skill="Laravel Framework" />
+          <SkillBadge skill="WordPress CMS" />
+          {/* Añade más habilidades */} 
+        </div>
+      </section>
 
-      <div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-        <a
-          href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Docs{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Find in-depth information about Next.js features and API.
-          </p>
-        </a>
-
-        <a
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Learn{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Learn about Next.js in an interactive course with&nbsp;quizzes!
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Templates{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-sm opacity-50">
-            Explore starter templates for Next.js.
-          </p>
-        </a>
-
-        <a
-          href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-          className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <h2 className="mb-3 text-2xl font-semibold">
-            Deploy{" "}
-            <span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-              -&gt;
-            </span>
-          </h2>
-          <p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-            Instantly deploy your Next.js site to a shareable URL with Vercel.
-          </p>
-        </a>
-      </div>
-    </main>
+      {/* CTA Section */}
+      <section className="p-10 text-center bg-gradient-to-r from-purple-500 to-blue-600 text-white bg-custom-image">
+        <h2 className="text-4xl font-bold mb-4">¿Listo para trabajar juntos?</h2>
+        <p className="text-lg mb-6">¡No dudes en ponerte en contacto para hablar sobre oportunidades y proyectos!</p>
+        <Link href="/contact" className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+          Contáctame
+        </Link>
+      </section>
+    </UserLayout>
   );
 }

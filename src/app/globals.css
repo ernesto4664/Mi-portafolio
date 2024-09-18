@@ -24,10 +24,56 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
+    cursor: none;
+    touch-action: none;
+}
+
+.cursor {
+  position: fixed;
+  width: 50px; /* Ajusta el tamaño si es necesario */
+  height: 50px;
+  background-image: url('/saturn-cursor.gif'); /* Ruta de tu GIF */
+  background-size: contain;
+  background-repeat: no-repeat;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  transition: transform 0.1s ease;
+}
+
+.cursor:hover {
+  background-color: rgba(255, 255, 255, 0.7); /* Cambia el color al pasar el mouse sobre elementos interactivos */
 }
 
 @layer utilities {
   .text-balance {
     text-wrap: balance;
   }
+}
+
+/* Estilos de la imagen de fondo del banner principal */
+@keyframes zoomOut {
+  0% {
+    background-size: 150%;
+  }
+  100% {
+    background-size: 100%;
+  }
+}
+
+.background-container {
+  background-image: url('/images/banner.jpg');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: 150%;
+  animation: zoomOut 8s ease forwards;
+}
+
+/* Estilos de la imagen de fondo del banner segundario */
+.bg-custom-image {
+  background-image: linear-gradient(to bottom, rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.6) 50%), 
+                    url('/images/bannerhorizontal.jpg'); /* Imagen de fondo */
+  background-size: cover; /* Cubrir todo el fondo */
+  background-position: center; /* Centrar la imagen */
+  background-repeat: no-repeat; /* Evita que la imagen se repita */
 }
