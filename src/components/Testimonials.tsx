@@ -3,7 +3,7 @@ import React from 'react';
 
 const testimonials = [
   { name: 'Pedro Gamez', text: 'Trabajar con Ernesto fue una experiencia increíble. Su atención al detalle y compromiso con la calidad es excepcional.' },
-  { name: 'Francisco Guedez', text: 'Ernesto es un desarrollador muy talentoso y un gran compa&#241;ero de equipo. Altamente recomendado!'}
+  { name: 'Francisco Guedez', text: 'Ernesto es un desarrollador muy talentoso y un gran compañero de equipo. Altamente recomendado!'}
   // Añade más testimonios aquí
 ];
 
