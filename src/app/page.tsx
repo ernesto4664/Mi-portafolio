@@ -87,14 +87,16 @@ export default function HomePage() {
   return (
     <UserLayout>
       {/* Hero Section con fondo animado */}
-      <section className="relative w-full h-screen flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white background-container">
-        <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn">¡Hola! Soy Ernesto Viloria</h1>
-        <p className="text-lg mb-6 max-w-2xl animate__animated animate__fadeInUp">
+      <section className="relative w-full h-screen md:h-auto flex flex-col items-center justify-center text-center bg-gradient-to-r from-blue-500 to-purple-600 text-white background-container">
+        <h1 className="text-3xl md:text-5xl font-bold mb-4 animate__animated animate__fadeIn">
+          ¡Hola! Soy Ernesto Viloria
+        </h1>
+        <p className="text-base md:text-lg mb-6 max-w-2xl animate__animated animate__fadeInUp">
           Desarrollador Full Stack apasionado por crear experiencias web increíbles.
         </p>
-       {/* <Link href="/projects" className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
+        {/* <Link href="/projects" className="px-6 py-3 bg-white text-blue-600 font-semibold rounded-lg shadow-md hover:bg-blue-600 hover:text-white hover:shadow-lg transition duration-300 transform hover:-translate-y-1">
           Ver mis Proyectos
-        </Link>*/}
+        </Link> */}
       </section>
 
       {/* Proyectos Destacados */}
