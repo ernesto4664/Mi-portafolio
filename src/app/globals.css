@@ -24,8 +24,8 @@ body {
       rgb(var(--background-end-rgb))
     )
     rgb(var(--background-start-rgb));
-    cursor: none;
-    touch-action: auto; /* Permite la interacción táctil en móviles */
+  cursor: auto; /* Cambia a auto para mostrar el cursor en escritorio */
+  touch-action: auto; /* Permite la interacción táctil en móviles */
 }
 
 .cursor {
@@ -35,7 +35,7 @@ body {
   background-image: url('/saturn-cursor.gif'); /* Ruta de tu GIF */
   background-size: contain;
   background-repeat: no-repeat;
-  pointer-events: auto;
+  pointer-events: none; /* Mantén none si no quieres que el cursor afecte la interacción */
   z-index: 9999;
   transform: translate(-50%, -50%);
   transition: transform 0.1s ease;
