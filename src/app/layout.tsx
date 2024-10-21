@@ -1,8 +1,8 @@
-// src/app/layout.tsx
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import CustomCursor from "../components/CustomCursor"; // Importa el componente de cliente
+import CustomCursor from "../components/CustomCursor";
+import { Analytics } from "@vercel/analytics/react"; // Importa Analytics de Vercel
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -22,6 +22,7 @@ export default function RootLayout({
       <body className={inter.className}>
         <CustomCursor /> {/* Usar el componente de cliente */}
         {children}
+        <Analytics /> {/* Añadir el componente de analítica aquí */}
       </body>
     </html>
   );
